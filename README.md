@@ -6,15 +6,15 @@ This project explores automatic translation from **archaic Italian (13th–15th 
 
 We evaluated three instruction-tuned multilingual LLMs:
 
-- **LLaMA 3 8B**
-- **Minerva 7B**
-- **Qwen 2.5 3B**
+- **LLaMA 3 8B instruct**
+- **Minerva 7B instruct**
+- **Qwen 2.5 3B instruct**
 
 Each model was tested under multiple prompting configurations:
-- Zero-shot
+- Zero-shot (LLaMA only)
 - Few-shot
 - Few-shot with POS tagging (LLaMA only)
-- TEaR-inspired prompting (Translate–Evaluate–Refine) for Qwen
+- TEaR-inspired prompting (Translate–Evaluate–Refine)  (Qwen only)
 
 Translations were evaluated using:
 - **Human annotators**
@@ -25,7 +25,7 @@ Translations were evaluated using:
 ## Methodology
 
 - **Dataset**: Sentences from historical Italian texts and AI-generated examples.
-- **Prompting**: Custom few-shot examples per model, written in Italian.
+- **Prompting**: Custom few-shot examples per model, written in Italian or English.
 - **Inference**: Deterministic decoding (`do_sample=False`) for reproducibility.
 - **Evaluation rubric** (1–5 scale): Semantic fidelity, fluency, grammatical correctness, style adaptation.
 
@@ -41,7 +41,7 @@ Translations were evaluated using:
 
 - **LLaMA** produced the most fluent and accurate translations.
 - **Minerva** often paraphrased too much, reducing fidelity.
-- **Qwen**, with TEaR-like prompting, improved but struggled with historical references.
+- **Qwen**, with TEaR-like prompting, improved but struggled with historical references and add improper terms.
 
 ---
 
